@@ -15,7 +15,7 @@ return new class extends Migration
             //
             $table->foreign('address_id')
             ->references('id')
-            ->on('users')
+            ->on('addresses')
             ->onDelete('SET NULL');
         });
     }
