@@ -26,7 +26,7 @@ class UserController extends Controller
             return response()->json(["mensagem"=> "Usuário não encontrado."],404);
         }
 
-        return response()->json($user);
+        return response()->json($user->address);
     }
 
     public function postUser(Request $request) {
