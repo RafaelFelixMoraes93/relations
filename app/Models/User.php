@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function address() {
         return $this->hasOne(Address::class,'id','address_id');
     }
+
+    public function invoice() {
+        return $this->hasOne(Invoice::class,'id','user_id');
+    }
 }
