@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 class InvoiceController extends Controller
 {
     //
+
+    public function index(Request $request) {
+        $invoices = Invoice::all();
+        return response()->json($invoices);
+    }
     public function postInvoice(Request $request)
     {
         $request->validate([
