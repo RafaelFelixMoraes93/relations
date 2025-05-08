@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Models\Invoice;
+use GuzzleHttp\Psr7\Response;
+use Illuminate\Http\Request;
+
+class InvoiceController extends Controller
+{
+    //
+    public function postInvoice(Request $request)
+    {
+        $request->validate([
+            'description' => 'nullable|string',
+            'valor' => 'required|numeric',
+            'user_id' => 'required|exists:users,id',
+            'address_id' => 'required|exists:addresses,id',
+        ]);
+
+        
+        $invoice = Invoice::create([
+            'description' => $request->description,
+            'valor' => $request->valor,
+            'user_id' => $request->user_id,
+            'address_id' => $request->address_id,
+        ]);
+
+        return response()->json([
+            'description' => $invoice->description,
+            'valor' => $invoice->valor,
+            'user_id' => $invoice->user_id,
+            'address_id' => $invoice->address_id
+        ]);
+    }
+}
