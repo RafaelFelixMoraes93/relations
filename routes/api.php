@@ -18,4 +18,6 @@ use App\Models\Invoice;
 
     Route::post('/address', [AddressController::class,'postAddress']);
 
+    Route::get('/invoice', [InvoiceController::class,'index']);
+
     Route::post('/invoice', [InvoiceController::class, 'postInvoice']);
