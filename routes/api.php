@@ -21,3 +21,5 @@ use App\Models\Invoice;
     Route::get('/invoice', [InvoiceController::class,'index']);
 
     Route::post('/invoice', [InvoiceController::class, 'postInvoice']);
+
+    Route::get('/invoice/{id}', [InvoiceController::class,'findOne']);
