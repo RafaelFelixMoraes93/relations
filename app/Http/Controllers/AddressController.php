@@ -24,6 +24,7 @@ class AddressController extends Controller
             return response()->json(['mensagem'=> 'Endereço não encontrado.'],404);
         }
         
+        $address['user'] = $address->user;
         return response()->json($address);
     }
 
