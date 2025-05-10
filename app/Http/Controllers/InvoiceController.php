@@ -39,4 +39,11 @@ class InvoiceController extends Controller
             'address_id' => $invoice->address_id
         ]);
     }
+
+    public function findOne (Request $request) {
+        $invoice = Invoice::find($request->id);
+        $invoice['user'] = $invoice->user;
+        $invoice['address'] = $invoice->address;
+        return $invoice;
+    }
 }
