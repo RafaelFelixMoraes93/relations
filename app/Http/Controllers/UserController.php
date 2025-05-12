@@ -25,7 +25,7 @@ class UserController extends Controller
         if (!$user) {
             return response()->json(["mensagem"=> "Usuário não encontrado."],404);
         }
-
+        $user['addresses'] = $user->addresses;
         return response()->json($user);
     }
 
